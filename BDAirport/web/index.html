@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+        <script type="text/javascript" src="js/cambiarPestanna.js"></script>
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <title></title>
+    </head>
+    <body>
+        <div class="contenedor">
+            <div class="titulo">Empresa de taxis del aeropuerto</div>
+            <div id="pestanas">
+                <ul id=lista>
+                    <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>Empresas</a></li>
+                    <li id="pestana2"><a href='javascript:cambiarPestanna(pestanas,pestana2);'>Taxis</a></li>
+                    <li id="pestana3"><a href='javascript:cambiarPestanna(pestanas,pestana3);'>Taxistas</a></li>
+                    <li id="pestana8"><a href='javascript:cambiarPestanna(pestanas,pestana8);'>Rutas</a></li>
+                    <li id="pestana9"><a href='javascript:cambiarPestanna(pestanas,pestana9);'>Updates</a></li>
+                    <li id="pestana10"><a href='javascript:cambiarPestanna(pestanas,pestana10);'>Deletes</a></li>
+                    <li id="pestana11"><a href='javascript:cambiarPestanna(pestanas,pestana11);'>Registro</a></li>
+                </ul>
+            </div>
+
+            
+            <body onload="javascript:cambiarPestanna(pestanas,pestana1);">
+       
+            <div id="contenidopestanas">
+                <div id="cpestana1">
+                	<form action = "companiaConexion.php" method = "POST">
+                    	Nombre compañia: <input type="text" name="txtCompania" maxlength="50"><br><br>
+                    	<input type="submit" name="btnEnviar" value="Registrar">
+                    </form>
+                    <br>
+                    <form action = "viewCompanias.php" method = "POST">
+                    	Ver compañias: <input type = "submit" name = "btnEnviar" value = "Ver">
+                    </form>
+                </div>
+                <div id="cpestana2">
+                	<form action="taxisConexion.php" method="POST">
+                		Color: <input type="text" name="txtColor" maxlength="50"><br><br>
+                		Modelo: <input type="text" name="txtModelo" maxlength="50"><br><br>
+                		Año: <input type="number" name="txtAnio" maxlength="4"><br><br>
+                		Compania: <input type = "text" name = "txtCompania" maxlength="50"><br><br>
+                		<input type="submit" name="btnEnviar" value = "Añadir">
+                    </form>
+                </div>
+                <div id="cpestana3">
+                	<form action="taxistasConexion.php" method="POST">
+                		Nombre: <input type="text" name="txtNombre" maxlength="50"><br><br>
+                		Apellido paterno: <input type="text" name="txtApellidoP" maxlength="50"><br><br>
+                		Apellido materno: <input type="text" name="txtApellidoM" maxlength="50"><br><br>
+                		Fecha de nacimiento: <input type="text" name="txtNacimiento" maxlength="50"><br><br>
+                		Sexo: <input type="text" name="txtSexo" maxlength="50"><br><br>
+                		Estado civil: <input type="text" name="txtEstadoCivil" maxlength="50"><br><br>
+                		Escolaridad: <input type="text" name="txtEscolaridad" maxlength="50"><br><br>
+                		Nacionalidad: <input type="text" name="txtNacionalidad" maxlength="50"><br><br>
+                		<input type="submit" name="btnEnviar" value = "Registrar">
+                    </form>
+                </div>
+                <div id="cpestana8">
+                    <form action= "rutasConexion.php" method="POST">
+                    	Destino: <input type="text" name="txtDestino" maxlength="50"><br><br>
+                    	Tarifa: <input type="number" name="txtTarifa" maxlength="70"><br><br>
+                    	Distancia: <input type="number" name="txtDistancia" maxlength="10"><br><br>
+                    	Tiempo del recorrido: <input type="number" name="txtTiempo" maxlength="10"><br><br>
+                    	Compañia: <input type="text" name="txtCompania" maxlength="50"><br><br>
+                    	<input type="submit" name="btnEnviar" value = "Añadir">
+                    </form>
+                    <br>
+                    <form action = "viewRutas.php" method = "POST">
+                    	Rutas existentes:  <input type = "submit" name = "btnEnviar" value = "Buscar">
+                    </form>
+                </div>
+
+                <div id="cpestana9">
+                    <form action = "taxistaTaxi.php" method = "POST">
+                    	<fieldset> 
+                    	<legend> Anadir taxista a taxi </legend>
+                    	ID del taxi: <input type="number" name="txtTaxi" maxlength="50"><br><br>
+                    	ID del taxista: <input type="number" name="txtTaxista" maxlength="50"> <br><br>
+                    	<input type="submit" name="btnEnviar" value="Actualizar">
+                    	</fieldset>
+                    </form>
+                    <br>
+                    <form action = "emptyTaxis.php" method = "POST">
+                    	Ver taxis sin taxista: <input type = "submit" name = "btnEnviar" value = "Ver">
+                    </form>
+                    <br>
+                    <form action = "taxilessTaxista.php" method = "POST">
+                    	Ver taxistas sin taxi: <input type="submit" name="btnEnviar" value="Ver">
+                    </form>
+                </div>
+
+                <div id="cpestana10">
+                    <form action= "deleteTaxista.php" method="POST">
+                    	<fieldset> 
+                    		<legend> Dar de baja taxista </legend>
+                    		ID del taxista: <input type="number" name="txtTaxista" maxlength="5"><br><br>
+                    		<input type="submit" name="btnEnviar" value="Eliminar">
+                    	</fieldset>
+                    </form>
+
+                    <form action= "deleteTaxi.php" method="POST">
+                    	<fieldset> 
+                    		<legend> Dar de baja taxi </legend>
+                    		ID del taxi: <input type="number" name="txtTaxi" maxlength="5"><br><br>
+                    		<input type="submit" name="btnEnviar" value="Eliminar">
+                    	</fieldset>
+                    </form>
+
+                    <br>
+                    <form action = "viewTaxistas.php" method = "POST">
+                    	Ver taxistas: <input type="submit" name="btnEnviar" value="Ver">
+                    </form>
+
+                    <br>
+                    <form action = "viewTaxis.php" method = "POST">
+                    	Ver taxis: <input type="submit" name="btnEnviar" value="Ver">
+                    </form>
+                </div>
+
+                <div id="cpestana11">
+                    <form action= "viewRegTaxis.php" method="POST">
+                    	<fieldset> 
+                    		<legend> Registro de taxis </legend>
+                    		<input type="submit" name="btnEnviar" value="Ver registro">
+                    	</fieldset>
+                    </form>
+
+                    <form action= "viewRegTaxistas.php" method="POST">
+                    	<fieldset> 
+                    		<legend> Registro de taxistas </legend>
+                    		<input type="submit" name="btnEnviar" value="Ver registro">
+                    	</fieldset>
+                    </form>
+                </div>
+
+
+            </div>
+            <br><br>
+
+            <form action = "buscarRuta.php" method = "POST">
+            	Nombre de la ruta a buscar: <input type="text" name="txtRuta" maxlength="50">
+            	<input type="submit" name="btnEnviar" value="Buscar">
+            </form>
+            <br>
+            
+        </div>
+    </body>
+</html>
